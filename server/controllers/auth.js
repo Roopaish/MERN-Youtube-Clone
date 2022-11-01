@@ -26,7 +26,7 @@ export const signin = async (req, res, next) => {
 
     const { password, ...others } = user._doc;
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT);
+    const token = jwt.sign({ id: user._id }, process.env.JWT); // generating unique token based on id and secretKey
 
     res
       .cookie("access_token", token, {
